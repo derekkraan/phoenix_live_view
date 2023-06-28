@@ -468,7 +468,7 @@ export default class View {
     let child = this.getChildById(el.id)
     if(!child){
       let view = new View(el, this.liveSocket, this)
-      console.log(["joinChild parent view, new view", this, view])
+      view.setHref(this.href)
       this.root.children[this.id][view.id] = view
       view.join()
       this.childJoins++

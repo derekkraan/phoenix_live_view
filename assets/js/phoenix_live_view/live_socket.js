@@ -110,8 +110,6 @@ import {
   maybe
 } from "./utils"
 
-console.log("HELLO")
-
 import Browser from "./browser"
 import DOM from "./dom"
 import Hooks from "./hooks"
@@ -121,7 +119,6 @@ import JS from "./js"
 
 export default class LiveSocket {
   constructor(url, phxSocket, opts = {}){
-    console.log("constructing live_socket")
     this.unloaded = false
     if(!phxSocket || phxSocket.constructor.name === "Object"){
       throw new Error(`
@@ -574,7 +571,6 @@ export default class LiveSocket {
   }
 
   setPendingLink(href){
-    console.log(["set pending link", href])
     this.linkRef++
     this.pendingLink = href
     return this.linkRef

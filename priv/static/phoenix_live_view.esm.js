@@ -2930,7 +2930,7 @@ var View = class {
     let child = this.getChildById(el.id);
     if (!child) {
       let view = new View(el, this.liveSocket, this);
-      console.log(["joinChild parent view, new view", this, view]);
+      view.setHref(this.href);
       this.root.children[this.id][view.id] = view;
       view.join();
       this.childJoins++;
@@ -3625,10 +3625,8 @@ var View = class {
 };
 
 // js/phoenix_live_view/live_socket.js
-console.log("HELLO");
 var LiveSocket = class {
   constructor(url, phxSocket, opts = {}) {
-    console.log("constructing live_socket");
     this.unloaded = false;
     if (!phxSocket || phxSocket.constructor.name === "Object") {
       throw new Error(`
@@ -4089,7 +4087,6 @@ var LiveSocket = class {
     return callback ? callback(e, targetEl) : {};
   }
   setPendingLink(href) {
-    console.log(["set pending link", href]);
     this.linkRef++;
     this.pendingLink = href;
     return this.linkRef;
