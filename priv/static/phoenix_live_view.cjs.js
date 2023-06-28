@@ -2943,7 +2943,7 @@ var View = class {
     let child = this.getChildById(el.id);
     if (!child) {
       let view = new View(el, this.liveSocket, this);
-      console.log(["joinChild new View()", view]);
+      console.log(["joinChild parent view, new view", this, view]);
       this.root.children[this.id][view.id] = view;
       view.join();
       this.childJoins++;
